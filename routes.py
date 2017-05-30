@@ -12,7 +12,7 @@ from flask_sqlalchemy import SQLAlchemy
 app = Flask(__name__)
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-
+#heroku = Heroku(app)
 urlparse.uses_netloc.append("postgres")
 url = urlparse.urlparse(os.environ["DATABASE_URL"])
 
@@ -24,7 +24,7 @@ conn = psycopg2.connect(
     port=url.port
 )
 
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ["DATABASE_URL"]
+#app.config['SQLALCHEMY_DATABASE_URI'] = os.environ["DATABASE_URL"]
 db = SQLAlchemy(app)
 #app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://localhost/learningflask'
 db.init_app(app)
