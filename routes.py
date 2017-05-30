@@ -6,7 +6,8 @@ app = Flask(__name__)
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://dqrlhegdpunhjh:1dc5d0263ef0b93eaac4a4f810918856a12448da7d571f2868ca898b42109a85@ec2-54-83-25-217.compute-1.amazonaws.com:5432/d6h9s9ms1lue4u'
+
 db.init_app(app)
 
 app.secret_key = "development-key"
