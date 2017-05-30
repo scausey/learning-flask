@@ -3,14 +3,29 @@ from models import db, User, Place
 from forms import SignupForm, LoginForm, AddressForm
 
 import os
-from flask_sqlalchemy import SQLAlchemy
+import psycopg2
+import urlparse
+
+#import os
+#from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ["DATABASE_URL"]
-db = SQLAlchemy(app)
+urlparse.uses_netloc.append("postgres")
+url = urlparse.urlparse(os.environ["DATABASE_URL"])
+
+conn = psycopg2.connect(
+    database=url.path[1:],
+    user=url.username,
+    password=url.password,
+    host=url.hostname,
+    port=url.port
+)
+
+#app.config['SQLALCHEMY_DATABASE_URI'] = os.environ["DATABASE_URL"]
+#db = SQLAlchemy(app)
 #app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://localhost/learningflask'
 #db.init_app(app)
 
