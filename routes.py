@@ -27,7 +27,7 @@ conn = psycopg2.connect(
 #app.config['SQLALCHEMY_DATABASE_URI'] = os.environ["DATABASE_URL"]
 #db = SQLAlchemy(app)
 #app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://localhost/learningflask'
-#db.init_app(app)
+db.init_app(app)
 
 app.secret_key = "development-key"
 
