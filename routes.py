@@ -24,8 +24,8 @@ conn = psycopg2.connect(
     port=url.port
 )
 
-#app.config['SQLALCHEMY_DATABASE_URI'] = os.environ["DATABASE_URL"]
-#db = SQLAlchemy(app)
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ["DATABASE_URL"]
+db = SQLAlchemy(app)
 #app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://localhost/learningflask'
 db.init_app(app)
 
