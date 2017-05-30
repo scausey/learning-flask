@@ -3,6 +3,7 @@ from models import db, User, Place
 from forms import SignupForm, LoginForm, AddressForm
 
 import os
+from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 
